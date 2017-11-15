@@ -13,7 +13,9 @@ mongoose.connect('mongodb://localhost:27017/horezon')
 const ObjectId = mongoose.Types.ObjectId
 
 // define schema for import data
-const ManufacturerSchema = new Schema({
+const CategorySchema = new Schema({
+  cat_id: { type: String, required: true },
+  parent: { type: String },
   name: { type: String, required: true, default: '' }, // ** English
   name_th: { type: String, default: '' }, // ** Thai
   slug: { type: String, index: true },
@@ -26,7 +28,7 @@ const ManufacturerSchema = new Schema({
 })
 
 // attach schema to model
-const Manufacturer = mongoose.model('manufacturers', ManufacturerSchema)
+const Category = mongoose.model('categories', CategorySchema)
 function addToCollection (data) {
   // scrub data for validation
   if (data.name || data.name != '') {
@@ -34,15 +36,15 @@ function addToCollection (data) {
       lower: true
     })
   } else {
-    data.name = 'brand name'
+    data.name = 'category name'
     data.slug = slug(data.name, {
       lower: true
     })
   }
 
   // create model and save to database
-  let manufacturer = new Manufacturer(data)
-  manufacturer.save(function (err) {
+  let category = new Category(data)
+  category.save(function (err) {
     if (
       err // ...
     ) {
@@ -60,14 +62,11 @@ csv
     delimiter: ';'
   })
   .on('data', function (data) {
-    console.log(data)
-    console.log(data.name)
     masterList.push(data)
     addToCollection(data)
   })
   .on('end', function () {
     console.log('done')
-    // console.log(masterList.toString())
   })
   .on('error', function (data) {
     return false

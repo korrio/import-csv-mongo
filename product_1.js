@@ -1,14 +1,15 @@
 const fs = require('fs')
 const csv = require('fast-csv')
 const slug = require('slug')
+let Promise = require('bluebird')
 const stream = fs.createReadStream(
   '/Users/korrio/Desktop/horezon/import/product_1.csv'
 )
-const mongoose = require('mongoose')
-const MongoClient = require('mongodb').MongoClient
+let mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const masterList = []
 mongoose.connect('mongodb://localhost:27017/horezon')
+mongoose.Promise = Promise
 
 const ObjectId = Schema.Types.ObjectId
 // const ObjectId = mongoose.Types.ObjectId
@@ -28,6 +29,7 @@ const ProductSchema = new Schema({
   badge: [String],
   // category, i.e. rice, body-skin, gardening
   category: [String], // ** ['10100','10100','10200']
+  category_id: String,
   // reference to shop group ID
   group: [], // for production grouping
   status: { type: String, default: 'instock' }, // ** instock|oos|soldout|preorder|offline
@@ -63,6 +65,33 @@ const ProductSchema = new Schema({
   // shop: { type: ObjectId, ref: 'Shop' },
   // ** manufacturer may be null
   manufacturer: { type: ObjectId, ref: 'Manufacturer' },
+  manufacturer_name: { type: String },
+
+  created_at: { type: Date, default: Date.now }, // **
+  updated_at: { type: Date, default: Date.now } // **
+})
+
+const ManufacturerSchema = new Schema({
+  name: { type: String, required: true, default: '' }, // ** English
+  name_th: { type: String, default: '' }, // ** Thai
+  slug: { type: String, index: true },
+  description: { type: String }, // **
+
+  images: [String], // **
+
+  created_at: { type: Date, default: Date.now }, // **
+  updated_at: { type: Date, default: Date.now } // **
+})
+
+const CategorySchema = new Schema({
+  cat_id: { type: String, required: true },
+  parent: { type: String },
+  name: { type: String, required: true, default: '' }, // ** English
+  name_th: { type: String, default: '' }, // ** Thai
+  slug: { type: String, index: true },
+  description: { type: String }, // **
+
+  images: [String], // **
 
   created_at: { type: Date, default: Date.now }, // **
   updated_at: { type: Date, default: Date.now } // **
@@ -80,6 +109,8 @@ ProductSchema.pre('findOne', function populateFields (next) {
 
 // attach schema to model
 const Product = mongoose.model('products', ProductSchema)
+const Manufacturer = mongoose.model('manufacturers', ManufacturerSchema)
+const Category = mongoose.model('categories', CategorySchema)
 
 let i = 0
 function addToCollection (data) {
@@ -94,7 +125,7 @@ function addToCollection (data) {
     })
   }
 
-  console.log(i + ': ' + data.name)
+  // console.log(i + ': ' + data.name)
   i++
   if (data.name || data.name !== '') {
   } else {
@@ -105,28 +136,63 @@ function addToCollection (data) {
     data.price = 0
   }
 
-  // let a = db.collection('manufacturers').find({ 'data.name': /อิชิตัน/i })
-  // console.log(a)
+  console.log(i + ': ' + data.manufacturer)
 
-  // if (data.manufacturer == 'คิงเฟรทฟาร์ม') {
-  //   data.manufacturer = new Manufacturer()
-  // } else if (data.manufacturer == 'เจริญโภคภัณฑ์') {
-  //   data.manufacturer = new Manufacturer()
-  // } else {
-  //   data.manufacturer = new Manufacturer()
-  // }
+  if (data.manufacturer == '') {
+    // data.manufacturer = 'manufacturer name'
+    data.manufacturer_name = data.manufacturer
+  }
+
+  Manufacturer.findOne({
+    name_th: data.manufacturer_name
+  })
+    .then(function (doc) {
+      if (doc) {
+        console.log(doc)
+        data.manufacturer_name = data.manufacturer
+        data.manufacturer = ObjectId(doc._id)
+      }
+    })
+    .then(function () {
+      let the_cat = ''
+      if (data.category3 != '') {
+        the_cat = data.category3
+      } else if (data.category2 != '') {
+        the_cat = data.category2
+      } else {
+        the_cat = data.category
+      }
+      return Category.findOne({
+        name_th: the_cat
+      })
+    })
+    .then(function (doc) {
+      if (doc) {
+        console.log(doc.name_th)
+        data.category = [doc.cat_id]
+        data.category_id = doc.cat_id
+        console.log(data.category)
+      } else {
+        delete data.category
+      }
+
+      let product = new Product(data)
+      product.save(function (err) {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log('Success added')
+        }
+      })
+    })
+    .then(() => {
+      console.log('success promising')
+    })
+    .catch(function (err) {
+      console.log(err)
+    })
 
   // create model and save to database
-  let product = new Product(data)
-  product.save(function (err) {
-    if (
-      err // ...
-    ) {
-      console.log(err)
-    } else {
-      console.log('Success added')
-    }
-  })
 }
 
 // read in CSV as stream row by row
@@ -138,9 +204,10 @@ csv
   .on('data', function (data) {
     masterList.push(data)
     addToCollection(data)
+    console.log('data')
   })
   .on('end', function () {
-    console.log('done importing')
+    console.log('end importing')
   })
   .on('error', function (data) {
     return false

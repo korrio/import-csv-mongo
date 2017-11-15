@@ -1,53 +1,47 @@
-cat_id,name_th,name,parent
-1,อาหารสด,Fresh food,0
-2,อาหารแห้ง/ สำเร็จรูป,Dried food / convenience,0
-3,อาหารทะเล,Seafood,0
-4,เครื่องดื่ม,Beverage,0
-5,เครื่องปรุง,Seasoning,0
-6,ผักสด,Fresh vegetables,1
-7,เนื้อไก่,Chicken,1
-8,เนื้อหมู,Pork,1
-9,เนื้อวัว,Beef,1
-10,ผลไม้,Fruit,1
-11,อาหารว่าง,Snacks,2
-12,น้ำมัน,Cooking oil,5
-13,น้ำจิ้ม,Dipping sauce,5
-14,ซอสปรุงรส,Seasoning sauce,5
-15,ผงชูรส,Seasoning powder,5
-16,ผงปรุงรส,Seasoning powder,5
-17,กะทิ,Coconut milk,5
-18,น้ำตาล,Sugar,5
-19,น้ำพริกเผา,Chilli Oil Paste,5
-20,น้ำมันพริกเผา,Chilli Oil Paste,5
-21,วุ้นเส้น,Vermicelli,5
-22,เต้าเจี้ยว,Soy Bean paste,5
-23,ครีมเทียม,Creamer,5
-24,น้ำครีมสลัด,Salad dressing,5
-25,ซอสพริก,Chili sauce,5
-26,ซอสมะเขือเทศ,Ketchup,5
-27,หอย/ ไข่หอย,Shellfish / Uni,3
-28,กุ้ง,Shrimp / prawn,3
-29,ปลา/ ไข่ปลา ,Fish / roe,3
-30,ปู,Crab,3
-31,ปลาหมึก,Squid,3
-32,น้ำอัดลม,Soft drink,4
-33,น้ำผลไม้,Juice,4
-34,ชา,Tea,4
-35,กาแฟ,Coffee,4
-36,นม,Milk,4
-37,น้ำดื่ม,Drinking water,4
-38,โซดา,Soda,4
-39,แอลกอฮอลล์,Alcohol,4
-40,ออร์แกนิก,Organic,7
-41,อกไก่,(Chicken) Breast,7
-42,น่องไก่,(Chicken) Drumstick,7
-43,ไก่สับ,Ground chicken,7
-44,ตีนไก่,(Chicken) Feet,7
-45,โครงไก่,Whole bone,7
-46,หอยนางรม,Oyster,3
-,,,
-,,,
-,,,
-,,,
-,,,
-,,(ละได้),
+cat_id;name_th;name;parent
+1;อาหารสด;Fresh food;0
+2;อาหารแห้ง/ สำเร็จรูป;Dried food / convenience;0
+3;อาหารทะเล;Seafood;0
+4;เครื่องดื่ม;Beverage;0
+5;เครื่องปรุง;Seasoning;0
+6;ผักสด;Fresh vegetables;1
+7;เนื้อไก่;Chicken;1
+8;เนื้อหมู;Pork;1
+9;เนื้อวัว;Beef;1
+10;ผลไม้;Fruit;1
+11;อาหารว่าง;Snacks;2
+12;น้ำมัน;Cooking oil;5
+13;น้ำจิ้ม;Dipping sauce;5
+14;ซอสปรุงรส;Seasoning sauce;5
+15;ผงชูรส;Seasoning powder;5
+16;ผงปรุงรส;Seasoning powder;5
+17;กะทิ;Coconut milk;5
+18;น้ำตาล;Sugar;5
+19;น้ำพริกเผา;Chilli Oil Paste;5
+20;น้ำมันพริกเผา;Chilli Oil Paste;5
+21;วุ้นเส้น;Vermicelli;5
+22;เต้าเจี้ยว;Soy Bean paste;5
+23;ครีมเทียม;Creamer;5
+24;น้ำครีมสลัด;Salad dressing;5
+25;ซอสพริก;Chili sauce;5
+26;ซอสมะเขือเทศ;Ketchup;5
+27;หอย/ ไข่หอย;Shellfish / Uni;3
+28;กุ้ง;Shrimp / prawn;3
+29;ปลา/ ไข่ปลา ;Fish / roe;3
+30;ปู;Crab;3
+31;ปลาหมึก;Squid;3
+32;น้ำอัดลม;Soft drink;4
+33;น้ำผลไม้;Juice;4
+34;ชา;Tea;4
+35;กาแฟ;Coffee;4
+36;นม;Milk;4
+37;น้ำดื่ม;Drinking water;4
+38;โซดา;Soda;4
+39;แอลกอฮอลล์;Alcohol;4
+40;ออร์แกนิก;Organic;7
+41;อกไก่;(Chicken) Breast;7
+42;น่องไก่;(Chicken) Drumstick;7
+43;ไก่สับ;Ground chicken;7
+44;ตีนไก่;(Chicken) Feet;7
+45;โครงไก่;Whole bone;7
+46;หอยนางรม;Oyster;3

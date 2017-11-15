@@ -9,8 +9,9 @@
   "author": "Me",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "fast-csv": "2.4.1",
     "mongoose": "^4.4.6",
-    "slug": "0.9.1"
+    "slug": "^0.9.1"
   }
 }
