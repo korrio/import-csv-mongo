@@ -1,0 +1,16 @@
+{
+  "name": "import-product-csv",
+  "version": "1.0.0",
+  "description": "import-product-csv desc",
+  "main": "product_1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Me",
+  "license": "MIT",
+  "dependencies": {
+    "fast-csv": "2.4.1",
+    "mongoose": "^4.4.6",
+    "slug": "0.9.1"
+  }
+}
