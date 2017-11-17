@@ -15,7 +15,9 @@ const ObjectId = mongoose.Types.ObjectId
 // define schema for import data
 const CategorySchema = new Schema({
   cat_id: { type: String, required: true },
+  root_id: { type: String, required: true },
   parent: { type: String },
+  level: { type: String },
   name: { type: String, required: true, default: '' }, // ** English
   name_th: { type: String, default: '' }, // ** Thai
   slug: { type: String, index: true },

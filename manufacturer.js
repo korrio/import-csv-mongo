@@ -26,7 +26,7 @@ const ManufacturerSchema = new Schema({
 })
 
 // attach schema to model
-const Manufacturer = mongoose.model('manufacturers', ManufacturerSchema)
+const Manufacturer = mongoose.model('manufacturer', ManufacturerSchema)
 function addToCollection (data) {
   // scrub data for validation
 

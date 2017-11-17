@@ -3,7 +3,7 @@ const csv = require('fast-csv')
 const slug = require('slug')
 let Promise = require('bluebird')
 const stream = fs.createReadStream(
-  '/Users/korrio/Desktop/horezon/import/product_1.csv'
+  '/Users/korrio/Desktop/horezon/import/product_4.csv'
 )
 let mongoose = require('mongoose')
 const Schema = mongoose.Schema
@@ -139,7 +139,8 @@ function addToCollection (data) {
   console.log(i + ': ' + data.manufacturer)
 
   if (data.manufacturer == '') {
-    // data.manufacturer = 'manufacturer name'
+    data.manufacturer_name = 'the-name'
+  } else {
     data.manufacturer_name = data.manufacturer
   }
 
@@ -151,6 +152,8 @@ function addToCollection (data) {
         console.log(doc)
         data.manufacturer_name = data.manufacturer
         data.manufacturer = ObjectId(doc._id)
+      } else {
+        data.manufacturer = ObjectId('1234')
       }
     })
     .then(function () {
@@ -169,8 +172,9 @@ function addToCollection (data) {
     .then(function (doc) {
       if (doc) {
         console.log(doc.name_th)
+        console.log(doc)
         data.category = [doc.cat_id]
-        data.category_id = doc.cat_id
+        data.category_id = doc.root_id
         console.log(data.category)
       } else {
         delete data.category

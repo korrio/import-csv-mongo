@@ -1,47 +1,47 @@
-cat_id;name_th;name;parent
-1;อาหารสด;Fresh food;0
-2;อาหารแห้ง/ สำเร็จรูป;Dried food / convenience;0
-3;อาหารทะเล;Seafood;0
-4;เครื่องดื่ม;Beverage;0
-5;เครื่องปรุง;Seasoning;0
-6;ผักสด;Fresh vegetables;1
-7;เนื้อไก่;Chicken;1
-8;เนื้อหมู;Pork;1
-9;เนื้อวัว;Beef;1
-10;ผลไม้;Fruit;1
-11;อาหารว่าง;Snacks;2
-12;น้ำมัน;Cooking oil;5
-13;น้ำจิ้ม;Dipping sauce;5
-14;ซอสปรุงรส;Seasoning sauce;5
-15;ผงชูรส;Seasoning powder;5
-16;ผงปรุงรส;Seasoning powder;5
-17;กะทิ;Coconut milk;5
-18;น้ำตาล;Sugar;5
-19;น้ำพริกเผา;Chilli Oil Paste;5
-20;น้ำมันพริกเผา;Chilli Oil Paste;5
-21;วุ้นเส้น;Vermicelli;5
-22;เต้าเจี้ยว;Soy Bean paste;5
-23;ครีมเทียม;Creamer;5
-24;น้ำครีมสลัด;Salad dressing;5
-25;ซอสพริก;Chili sauce;5
-26;ซอสมะเขือเทศ;Ketchup;5
-27;หอย/ ไข่หอย;Shellfish / Uni;3
-28;กุ้ง;Shrimp / prawn;3
-29;ปลา/ ไข่ปลา ;Fish / roe;3
-30;ปู;Crab;3
-31;ปลาหมึก;Squid;3
-32;น้ำอัดลม;Soft drink;4
-33;น้ำผลไม้;Juice;4
-34;ชา;Tea;4
-35;กาแฟ;Coffee;4
-36;นม;Milk;4
-37;น้ำดื่ม;Drinking water;4
-38;โซดา;Soda;4
-39;แอลกอฮอลล์;Alcohol;4
-40;ออร์แกนิก;Organic;7
-41;อกไก่;(Chicken) Breast;7
-42;น่องไก่;(Chicken) Drumstick;7
-43;ไก่สับ;Ground chicken;7
-44;ตีนไก่;(Chicken) Feet;7
-45;โครงไก่;Whole bone;7
-46;หอยนางรม;Oyster;3
+root_id;cat_id;name_th;name;parent;level
+1;10000;อาหารสด;Fresh food;0;1
+2;20000;อาหารแห้ง/ สำเร็จรูป;Dried food / convenience;0;1
+3;30000;อาหารทะเล;Seafood;0;1
+4;40000;เครื่องดื่ม;Beverage;0;1
+5;50000;เครื่องปรุง;Seasoning;0;1
+6;10100;ผักสด;Fresh vegetables;1;2
+7;10200;เนื้อไก่;Chicken;1;2
+8;10300;เนื้อหมู;Pork;1;2
+9;10400;เนื้อวัว;Beef;1;2
+10;10500;ผลไม้;Fruit;1;2
+11;20100;อาหารว่าง;Snacks;2;2
+12;50100;น้ำมัน;Cooking oil;5;2
+13;50200;น้ำจิ้ม;Dipping sauce;5;2
+14;50300;ซอสปรุงรส;Seasoning sauce;5;2
+15;50400;ผงชูรส;Seasoning powder;5;2
+16;50500;ผงปรุงรส;Seasoning powder;5;2
+17;50600;กะทิ;Coconut milk;5;2
+18;50700;น้ำตาล;Sugar;5;2
+19;50800;น้ำพริกเผา;Chilli Oil Paste;5;2
+20;50900;น้ำมันพริกเผา;Chilli Oil Paste;5;2
+21;51000;วุ้นเส้น;Vermicelli;5;2
+22;51100;เต้าเจี้ยว;Soy Bean paste;5;2
+23;51200;ครีมเทียม;Creamer;5;2
+24;51300;น้ำครีมสลัด;Salad dressing;5;2
+25;51400;ซอสพริก;Chili sauce;5;2
+26;51500;ซอสมะเขือเทศ;Ketchup;5;2
+27;30100;หอย/ ไข่หอย;Shellfish / Uni;3;2
+28;30200;กุ้ง;Shrimp / prawn;3;2
+29;30300;ปลา/ ไข่ปลา ;Fish / roe;3;2
+30;30400;ปู;Crab;3;2
+31;30500;ปลาหมึก;Squid;3;2
+32;40100;น้ำอัดลม;Soft drink;4;2
+33;40200;น้ำผลไม้;Juice;4;2
+34;40300;ชา;Tea;4;2
+35;40400;กาแฟ;Coffee;4;2
+36;40500;นม;Milk;4;2
+37;40600;น้ำดื่ม;Drinking water;4;2
+38;40700;โซดา;Soda;4;2
+39;40800;แอลกอฮอลล์;Alcohol;4;2
+40;10201;ออร์แกนิก;Organic;7;3
+41;10202;อกไก่;(Chicken) Breast;7;3
+42;10203;น่องไก่;(Chicken) Drumstick;7;3
+43;10204;ไก่สับ;Ground chicken;7;3
+44;10205;ตีนไก่;(Chicken) Feet;7;3
+45;10206;โครงไก่;Whole bone;7;3
+46;30101;หอยนางรม;Oyster;3;2
